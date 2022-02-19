@@ -1,17 +1,61 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+// CUSTOM Font - https://material.angular.io/guide/typography
+// https://fonts.google.com/
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// $my-custom-level: mat.define-typography-config(
+//   $font-family: 'Roboto Serif',
+// );
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+// CUSTOM Font - https://material.angular.io/guide/theming
+// @include mat.core($my-custom-level);
+
+// CUSTOM Palette
+// http://mcg.mbitson.com/#!?mcgpalette0=%23351684&themename=mcgtheme
+// $custom-purple-palette: (
+//   50: #e7e3f0,
+//   100: #c2b9da,
+//   200: #9a8bc2,
+//   300: #725ca9,
+//   400: #533996,
+//   500: #351684,
+//   600: #30137c,
+//   700: #281071,
+//   800: #220c67,
+//   900: #160654,
+//   A100: #9987ff,
+//   A200: #6d54ff,
+//   A400: #4221ff,
+//   A700: #2c08ff,
+//   contrast: (
+//     50: #000000,
+//     100: #000000,
+//     200: #000000,
+//     300: #ffffff,
+//     400: #ffffff,
+//     500: #ffffff,
+//     600: #ffffff,
+//     700: #ffffff,
+//     800: #ffffff,
+//     900: #ffffff,
+//     A100: #000000,
+//     A200: #ffffff,
+//     A400: #ffffff,
+//     A700: #ffffff,
+//   ),
+// );
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+// $board-planner-primary: mat.define-palette($custom-purple-palette);
 $board-planner-primary: mat.define-palette(mat.$indigo-palette);
 $board-planner-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
@@ -20,13 +64,15 @@ $board-planner-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$board-planner-theme: mat.define-light-theme((
-  color: (
-    primary: $board-planner-primary,
-    accent: $board-planner-accent,
-    warn: $board-planner-warn,
+$board-planner-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $board-planner-primary,
+      accent: $board-planner-accent,
+      warn: $board-planner-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,5 +81,11 @@ $board-planner-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
