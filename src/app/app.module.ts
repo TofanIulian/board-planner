@@ -7,10 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
@@ -19,6 +22,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    UserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
