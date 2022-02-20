@@ -64,7 +64,7 @@ $board-planner-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$board-planner-theme: mat.define-light-theme(
+$board-planner-theme: mat.define-dark-theme(
   (
     color: (
       primary: $board-planner-primary,
