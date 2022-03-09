@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
-import { AuthGuard } from './user/auth.guard';
+import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => {
+  // TODO: make this a nice snack bar like in the initial AuthGuard from ./user/auth.guard
+  alert('You must be logged in');
+  return redirectUnauthorizedTo(['login']);
+};
+const redirectLoggedInToKanban = () => redirectLoggedInTo(['kanban']);
+
+// TODO: check out how claims work in with firebase
+// const adminOnly = () => hasCustomClaim('admin');
+// const belongsToAccount = (next) => hasCustomClaim(`account-${next.params.id}`);
 
 const routes: Routes = [
   {
@@ -11,11 +22,12 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+    ...canActivate(redirectLoggedInToKanban),
   },
   {
-    path: 'login',
+    path: 'kanban',
     loadChildren: () => import('./kanban/kanban.module').then((m) => m.KanbanModule),
-    canActivate: [AuthGuard],
+    ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
 

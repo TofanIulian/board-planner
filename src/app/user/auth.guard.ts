@@ -4,6 +4,8 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angul
 import { SnackService } from '../services/snack.service';
 
 /**
+ * NOTE: Angular fire already provides a AuthGuard with some nice features in their repo at: src\auth-guard\auth-guard.ts
+ *       If you ever need to do something custom you should try to build on top of it.
  * A guard used for preventing unauthenticated users form accessing routes.
  */
 @Injectable({
