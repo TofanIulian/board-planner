@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmailLoginComponent } from './email-login/email-login.component';
 
 /**
- * handles the user authentication and registration.
+ * Handles the user authentication and registration.
  */
 @NgModule({
   declarations: [LoginPageComponent, GoogleSigninDirective, EmailLoginComponent],
