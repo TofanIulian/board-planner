@@ -14,11 +14,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
 /**
  * An array of all the shared components that we want to export.
  */
-const components = [ShellComponent];
+const components = [ShellComponent, DeleteButtonComponent];
 
 /**
  * Angular material modules that will be used throughout the app.
