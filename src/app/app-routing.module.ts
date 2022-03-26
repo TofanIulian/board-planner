@@ -5,7 +5,7 @@ import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angula
 
 const redirectUnauthorizedToLogin = () => {
   // TODO: make this a nice snack bar like in the initial AuthGuard from ./user/auth.guard
-  alert('You must be logged in');
+  // alert('You must be logged in');
   return redirectUnauthorizedTo(['login']);
 };
 const redirectLoggedInToKanban = () => redirectLoggedInTo(['kanban']);
@@ -27,6 +27,11 @@ const routes: Routes = [
   {
     path: 'kanban',
     loadChildren: () => import('./kanban/kanban.module').then((m) => m.KanbanModule),
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'customers',
+    loadChildren: () => import('./customers/customers.module').then((m) => m.CustomersModule),
     ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
