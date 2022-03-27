@@ -19,7 +19,6 @@ export class BoardListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.boardsSubscription = this.boardService.getUserBoards().subscribe((boards) => {
       this.boards = boards;
-      console.warn(this.boards);
     });
   }
 

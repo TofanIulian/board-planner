@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/board-planner",
+    "public": "dist/board-planner/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
