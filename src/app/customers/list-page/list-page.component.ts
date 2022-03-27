@@ -22,7 +22,5 @@ export class ListPageComponent implements OnInit {
     });
 
     this.customers = this.customersService.getAllCustomers();
-
-    this.customers.subscribe((data) => console.warn(data));
   }
 }
