@@ -18,7 +18,7 @@ import { UserModule } from './user/user.module';
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,

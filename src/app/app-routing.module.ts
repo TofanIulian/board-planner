@@ -32,12 +32,15 @@ const routes: Routes = [
   {
     path: 'customers',
     loadChildren: () => import('./customers/customers.module').then((m) => m.CustomersModule),
-    ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
